@@ -1,9 +1,8 @@
-from typing import Callable
-
 # Advantages to use wraps:
 # https://hayageek.com/functools-wraps-in-python/#:~:text=In%20Python%2C%20the%20module%20functools,without%20permanently%20modifying%20their%20behavior.
 # (it works without, but it's better with)
 from functools import wraps
+from typing import Callable
 
 
 def add_logging[T, **P](f: Callable[P, T]) -> Callable[P, T]:
@@ -43,8 +42,8 @@ def add_three(x: float, y: float, z: float) -> float:
     return x + y + z
 
 
-res = add_two(1, 2)
+res = add_two(1, 2)  # add_two was called
 # reveal_type(res)  <-- Type of "res" is "float" (Pylance)
 
-res = add_three(1, 2, 3)
+res = add_three(1, 2, 3)  # LOGGING: add_three was called
 # reveal_type(res)  <-- Type of "res" is "float" (Pylance)
