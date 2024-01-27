@@ -16,6 +16,10 @@ def add_logging[T, **P](f: Callable[P, T]) -> Callable[P, T]:
     return inner
 
 
+def add_logging_with_added_params():
+    TODO
+
+
 def add_logging_with_msg(msg: str):
     def add_logging[T, **P](f: Callable[P, T]) -> Callable[P, T]:
         """A type-safe decorator to add logging to a function."""
