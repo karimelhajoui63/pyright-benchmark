@@ -23,7 +23,5 @@ def func(x: Literal["str", "int"]) -> int | str:
 
 
 # 😕: the "str" isn't proposed on the IDE. Only the last one ("int") is proposed.
-res = func("str")
-# reveal_type(res)  <-- Type of "res" is "str" (Pylance)
-res = func("int")
-# reveal_type(res)  <-- Type of "res" is "str" (Pylance)
+res = func("str")  # <-- Type of "res" is "str" (Pylance)
+res = func("int")  # <-- Type of "res" is "int" (Pylance)
