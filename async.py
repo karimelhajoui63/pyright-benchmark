@@ -1,5 +1,5 @@
 """
-NOTE: 
+NOTE:
 
 The difference between Pytohn and TS is that async functions are not automatically run.
 The "async/await" can be stopped in Python
@@ -37,9 +37,17 @@ async def do_work(msg: str):
 #     print("after do_work")
 
 
+async def main_with_await():
+    """
+    This is run one after the other
+    """
+    await do_work(msg="1")
+    await do_work(msg="2")
+
+
 def main_with_asyncio_run():
     """
-    This is run one afterr the other
+    This is run one after the other
     """
     asyncio.run(do_work(msg="1"))
     asyncio.run(do_work(msg="2"))
@@ -68,6 +76,7 @@ def main_with_task_group_with_return():
 if __name__ == "__main__":
     # main_without_awaiting_with_return()
     # main_without_awaiting()
+    asyncio.run(main_with_await())
     # main_with_asyncio_run()
     # main_with_task_group()
-    main_with_task_group_with_return()
+    # main_with_task_group_with_return()
